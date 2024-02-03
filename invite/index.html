@@ -17,6 +17,18 @@ body {
 margin: auto;
 }
 
+const urlParams = new URLSearchParams(window.location.href);
+const title = urlParams.get('title');
+const code = urlParams.get('code');
+
+#servertitle {
+content: title;
+}
+
+#servercode {
+content: code;
+}
+
 @font-face { font-family: SegoeUIRegular; src: url('SegoeUIRegular.ttf'); } 
          p {
          font-family: SegoeUIRegular
@@ -51,20 +63,6 @@ margin: auto;
 <div style="background-color: #212121; display: flex;">
 <image style="cursor: pointer;" onclick="window.open('https://youtube.com/@CatAdventureTechnology', '_blank');" src="youtube.png" width=30 height=30>
 </div>
-
-<script>
-const urlParams = new URLSearchParams(window.location.href);
-const title = urlParams.get('title');
-const code = urlParams.get('code');
-
-#servertitle {
-content: title;
-}
-
-#servercode {
-content: code;
-}
-</script>
 </body>
 
 </html>
