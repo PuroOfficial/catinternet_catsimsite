@@ -17,6 +17,18 @@ body {
 margin: auto;
 }
 
+.container { position:relative; }
+.container video {
+    position:relative;
+    z-index:0;
+}
+.overlay {
+    position:absolute;
+    top:40%;
+    left:0%;
+    z-index:1;
+}
+
 @font-face { font-family: SegoeUIRegular; src: url('SegoeUIRegular.ttf'); } 
          p {
          font-family: SegoeUIRegular
@@ -27,9 +39,6 @@ margin: auto;
 		 a {
          font-family: SegoeUIRegular
          }
-		 span {
-         font-family: SegoeUIRegular
-         }
 </style>
 </head>
 
@@ -38,21 +47,40 @@ margin: auto;
 <image src="logo.png" alt="Cat Simulator Logo" width=50 height=50>
 <p style="color: white; margin-left: 10px;">Cat Simulator</p>
 </div>
-<br>
-<center><h1>You have been invted to:</h1>
-<p><span id="title"></span></p>
-<br>
-<p>Server Code:</p>
-<p><span id="code"></span></p>
-<br>
-<a href="javascript:copyTextToClipboard(codevar)" id="button-next" onclick="const divElement = document.getElementById('copysuccess'); const divElement2 = document.getElementById('button-next'); divElement2.style.display = 'none'; divElement.style.display = 'block';">Let's go!</a></center>
-<br>
-<div style="display: none;" id="copysuccess">
-<center><h1>Almost done!</h1>
-<p>The code has been pasted to your clipboard,</p>
-<p>Open Cat Simulator 2015 > Multiplayer > Join Custom Game</p>
-<p>Then paste the code to the textbox.</p></center>
+<div class="container">
+<video id="video" style="margin: auto; filter: brightness(45%); object-fit:cover;" poster="CatSimulatorPreview.png" preload="auto" width="100%" height="720px" autoplay loop muted>
+	<source src="CatSimulatorPreview.mp4" type="video/mp4">
+Your browser does not support the videos.
+</video>
+	<div class="overlay" style="color: white; width: 100%;">
+	<center><h1>Welcome to Cat Simulator!</h1></center>
+	<center><p>Cat Simulator lets you behave like one of your favorite feline friends, doing practically whatever you want. You can also collect money while playing and use it to buy new types of cats.</p></center>
+	</div>
 </div>
+<br>
+<center><p>In Cat Simulator you get to live the life of a cat!</p>
+
+<p>As a cat, you can explore your environment, play with various toys, climb trees, chase prey, and more! With over 100 different items to interact with, you'll never run out of things to do!</p>
+
+<p>Plus, with customisable skins and a realistic physics engine, you'll feel like you're the star of your own cat action movie! Don't miss out on the fun - download Cat Simulator 2015 today!</p>
+
+<a href="CatSimulator.apk">Download!</a></center>
+
+<br>
+<center><h1>Stunning graphics!</h1></center>
+<center><div>
+<image src="Screenshot1.png" alt="Screenshot Preview">
+<image src="Screenshot2.png" alt="Screenshot Preview">
+<image src="Screenshot3.png" alt="Screenshot Preview">
+<image src="Screenshot4.png" alt="Screenshot Preview">
+<image src="Screenshot5.png" alt="Screenshot Preview">
+<image src="Screenshot6.png" alt="Screenshot Preview">
+<image src="Screenshot7.png" alt="Screenshot Preview">
+<image src="Screenshot8.png" alt="Screenshot Preview">
+<image src="Screenshot9.png" alt="Screenshot Preview">
+<image src="Screenshot10.png" alt="Screenshot Preview">
+</div></center>
+<br>
 
 <div style="background-color: black; display: flex;">
 <p style="color: white;">Cat Simulator 2015-2024, This website is not affiliated with Rage Group or Swift Apps! | CatAdventure on YouTube 2022-2024 All Rights Reserved.</p>
@@ -60,25 +88,6 @@ margin: auto;
 <div style="background-color: #212121; display: flex;">
 <image style="cursor: pointer;" onclick="window.open('https://youtube.com/@CatAdventureTechnology', '_blank');" src="youtube.png" width=30 height=30>
 </div>
-
-<script>
-const urlParams = new URLSearchParams(window.location.href);
-const titlevar = urlParams.get('title');
-const codevar = urlParams.get('code');
-
-document.getElementById("title").innerHTML = titlevar;
-document.getElementById("code").innerHTML = codevar;
-
-const copyTextToClipboard = async (text) => {
-    try {
-        await navigator.clipboard.writeText(text)
-
-        console.log('Text copied to clipboard successfully!')
-    } catch (error) {
-        console.error('Failed to copy text:', error)
-    }
-}
-</script>
 </body>
 
 </html>
