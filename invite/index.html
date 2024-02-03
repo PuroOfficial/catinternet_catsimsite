@@ -17,18 +17,6 @@ body {
 margin: auto;
 }
 
-const urlParams = new URLSearchParams(window.location.href);
-const title = urlParams.get('title');
-const code = urlParams.get('code');
-
-.servertitle {
-content: title;
-}
-
-.servercode {
-content: code;
-}
-
 @font-face { font-family: SegoeUIRegular; src: url('SegoeUIRegular.ttf'); } 
          p {
          font-family: SegoeUIRegular
@@ -37,6 +25,9 @@ content: code;
          font-family: SegoeUIRegular
          }
 		 a {
+         font-family: SegoeUIRegular
+         }
+		 span {
          font-family: SegoeUIRegular
          }
 </style>
@@ -49,13 +40,19 @@ content: code;
 </div>
 <br>
 <center><h1>You have been invted to:</h1>
-<p class="servertitle">ServerTitle</p>
+<p><span id="title"></span></p>
 <br>
 <p>Server Code:</p>
-<p class="servercode">ServerCode</p>
+<p><span id="code"></span></p>
 <br>
-<a href="CatSimulator.apk">Download!</a></center>
+<a href="javascript:copyTextToClipboard(codevar)" id="button-next" onclick="const divElement = document.getElementById('copysuccess'); const divElement2 = document.getElementById('button-next'); divElement2.style.display = 'none'; divElement.style.display = 'block';">Let's go!</a></center>
 <br>
+<div style="display: none;" id="copysuccess">
+<center><h1>Almost done!</h1>
+<p>The code has been pasted to your clipboard,</p>
+<p>Open Cat Simulator 2015 > Multiplayer > Join Custom Game</p>
+<p>Then paste the code to the textbox.</p></center>
+</div>
 
 <div style="background-color: black; display: flex;">
 <p style="color: white;">Cat Simulator 2015-2024, This website is not affiliated with Rage Group or Swift Apps! | CatAdventure on YouTube 2022-2024 All Rights Reserved.</p>
@@ -63,6 +60,25 @@ content: code;
 <div style="background-color: #212121; display: flex;">
 <image style="cursor: pointer;" onclick="window.open('https://youtube.com/@CatAdventureTechnology', '_blank');" src="youtube.png" width=30 height=30>
 </div>
+
+<script>
+const urlParams = new URLSearchParams(window.location.href);
+const titlevar = urlParams.get('title');
+const codevar = urlParams.get('code');
+
+document.getElementById("title").innerHTML = titlevar;
+document.getElementById("code").innerHTML = codevar;
+
+const copyTextToClipboard = async (text) => {
+    try {
+        await navigator.clipboard.writeText(text)
+
+        console.log('Text copied to clipboard successfully!')
+    } catch (error) {
+        console.error('Failed to copy text:', error)
+    }
+}
+</script>
 </body>
 
 </html>
